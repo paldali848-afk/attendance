@@ -1,0 +1,60 @@
+2026-08-27 13:07:26 - ========== START APPROVAL PROCESS ==========
+2026-08-27 13:07:26 - POST data: Array
+(
+    [action] => process_approval
+    [request_id] => 92
+    [request_type] => pl_adjustment
+    [status] => approved
+    [remarks] => ok
+)
+
+2026-08-27 13:07:26 - Request ID: 92, Type: pl_adjustment, Status: approved
+2026-08-27 13:07:26 - Remarks: ok
+2026-08-27 13:07:26 - Exception request detected
+2026-08-27 13:07:26 - Targeting table: late_exception_requests for ID: 92
+2026-08-27 13:07:26 - User ID: 8737, Person ID: FNM1924
+2026-08-27 13:07:26 - Leave Type determined: 'pl_adjustment'
+2026-08-27 13:07:26 - Exception - Days to deduct: 1
+2026-08-27 13:07:26 - Current PL Balance: 1.2
+2026-08-27 13:07:26 - PL request detected. Checking balance...
+2026-08-27 13:07:26 - PL balance check passed. Will deduct 1 days.
+2026-08-27 13:07:26 - Request status updated to: approved
+2026-08-27 13:07:26 - ========== DEDUCTING PL BALANCE ==========
+2026-08-27 13:07:26 - Balance: 1.2 - 1 = 0.2
+2026-08-27 13:07:26 - PL DEDUCTION FAILED! Expected: 0.2, Got: 0.2
+2026-08-27 13:07:27 - Transaction failed: PL deduction verification failed
+2026-08-27 13:07:27 - ERROR: PL deduction verification failed
+2026-08-27 13:07:27 - Stack trace: #0 C:\xampp\htdocs\attendance\dashboard.php(69): require_once()
+#1 {main}
+2026-08-27 13:20:26 - ========== START APPROVAL PROCESS ==========
+2026-08-27 13:20:26 - POST data: Array
+(
+    [action] => process_approval
+    [request_id] => 93
+    [request_type] => pl_adjustment
+    [status] => approved
+    [remarks] => okm
+)
+
+2026-08-27 13:20:26 - Request ID: 93, Type: pl_adjustment, Status: approved
+2026-08-27 13:20:26 - Exception request detected
+2026-08-27 13:20:26 - Targeting table: late_exception_requests for ID: 93
+2026-08-27 13:20:26 - User ID: 8737, Person ID: FNM1924
+2026-08-27 13:20:26 - Leave Type: 'pl_adjustment'
+2026-08-27 13:20:26 - Target date for context: 2026-08-24
+2026-08-27 13:20:26 - Current Status: A, Check Out: 00:00:00, Work Hours: 0
+2026-08-27 13:20:26 - Processing PL/PL Adjustment with smart logic
+2026-08-27 13:20:26 - Day is Absent or Out NULL: Marking PL and deducting 1.0
+2026-08-27 13:20:26 - Final decision: Status: PL, Days to deduct: 1
+2026-08-27 13:20:26 - Current PL Balance: 1.2
+2026-08-27 13:20:26 - Request status updated to: approved
+2026-08-27 13:20:26 - ========== DEDUCTING PL BALANCE ==========
+2026-08-27 13:20:26 - Deducting 1 days from user 8737
+2026-08-27 13:20:26 - Balance: 1.2 - 1 = 0.2
+2026-08-27 13:20:26 - PL history logged
+2026-08-27 13:20:26 - PL DEDUCTION SUCCESSFUL! New balance: 0.2
+2026-08-27 13:20:26 - ========== UPDATING EXCEPTION ATTENDANCE ==========
+2026-08-27 13:20:26 - Exception Date: 2026-08-24, Type: pl_adjustment
+2026-08-27 13:20:26 - PL Adjustment - Setting status to: PL
+2026-08-27 13:20:26 - Inserted attendance for 2026-08-24 with status: PL
+2026-08-27 13:20:26 - Notification sent: Your exception request for Aug 24, 2026 has been approved. Status: PL

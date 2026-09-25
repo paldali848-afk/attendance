@@ -1,0 +1,50 @@
+The system was failing to automatically fetch and update attendance records (specifically check_out times and work hours) from the source table (attendance_db.attendance_daily_summary) to the target table (atten.attendance). Even when the script was run, records like Dali Pal (FNM1924) remained stuck with old data.
+Technical Root Causes
+Multiple Unique Index Conflict: The target table had 6 redundant unique indexes (uk_person_date, unique_attendance, etc.) which caused MySQL's ON DUPLICATE KEY UPDATE logic to behave unpredictably.
+ID Matching Issues: Subtle differences in data collation or trailing spaces in person_id prevented the script from recognizing existing rows.
+Manual Execution Requirement: The system relied on a user manually opening a browser URL to trigger the sync, leading to data delays.
+? The Solution
+1. Database Optimization
+We identified and removed redundant indexes to ensure a clean path for the sync logic.
+Kept: PRIMARY and uk_person_date.
+Removed: All other redundant idx_ and unique_ combinations.
+2. Improved Sync Logic (attendance_sync.php)
+The script was redesigned to be "forceful" and optimized:
+TRIM Logic: Uses TRIM(person_id) to ensure matching even if hidden spaces exist.
+Date Windowing: Instead of syncing the whole month, the script now syncs only the last 2 days. This makes it run in milliseconds.
+Dual-Action Sync:
+Step 1: Updates existing records (for check-outs).
+Step 2: Inserts new records (for new arrivals).
+Step 3: Refreshes Status (Present/Late/Absent) and calculates Work Hours.
+?? Automation (The Cron Job)
+The system is now fully automated using a server-side Cron Job. It no longer requires manual browser refreshing.
+Cron Configuration
+The task is scheduled via PuTTY using the crontab -e command.
+Schedule: Every 2 minutes (*/2 * * * *)
+Execution Command:
+code
+Bash
+/usr/bin/php /srv/www/htdocs/attendance/includes/modules/attendance/attendance_sync.php >> /var/log/attendance_sync.log 2>&1
+?? Monitoring & Logs
+You can monitor the live health of the sync system via PuTTY.
+To check if the sync is running:
+Run the following command to see the real-time log:
+code
+Bash
+tail -f /var/log/attendance_sync.log
+What a successful log looks like:
+code
+Text
+--- ATTENDANCE SYNC START ---
+Syncing data for dates >= 2026-08-20
+Step 1: Sync finished. Rows affected: 39
+Step 2: Work hours updated: 19
+Step 3: Status updated.
+--- SYNC COMPLETED SUCCESSFULLY ---
+?? Maintenance Tips
+Port Changes: The current setup uses a direct PHP call on the server. If you move the file to a different folder, remember to update the path in crontab -e.
+Warnings: You may see session_start() warnings in the log file. These are harmless and occur because the script is running from the Terminal (CLI) rather than a browser.
+Data Integrity: If data stops appearing, check the attendance_db (source) first to ensure it is receiving data from the biometric devices.
+Status: ACTIVE & AUTOMATED
+Frequency: Every 2 Minutes
+Sync Window: Last 48 Hours

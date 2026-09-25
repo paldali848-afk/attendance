@@ -1,0 +1,5 @@
+PHP Warning:  PHP Startup: Unable to load dynamic library 'fileinfo.so' (tried: /usr/lib64/php7/extensions/fileinfo.so (/usr/lib64/php7/extensions/fileinfo.so: cannot open shared object file: No such file or directory), /usr/lib64/php7/extensions/fileinfo.so.so (/usr/lib64/php7/extensions/fileinfo.so.so: cannot open shared object file: No such file or directory)) in Unknown on line 0
+PHP Warning:  Module 'pdo_pgsql' already loaded in Unknown on line 0
+PHP Warning:  Module 'pgsql' already loaded in Unknown on line 0
+PHP Warning:  Module 'Phar' already loaded in Unknown on line 0
+SUCCESS: Processed 1440 users for September 2026.

@@ -1,0 +1,435 @@
+2026-08-08 10:02:10 - ========== START APPROVAL PROCESS ==========
+2026-08-08 10:02:10 - POST data: Array
+(
+    [action] => process_approval
+    [request_id] => 32
+    [request_type] => comp_off
+    [status] => approved
+    [remarks] => SAD
+)
+
+2026-08-08 10:02:10 - Request ID: 32, Type: comp_off, Status: approved
+2026-08-08 10:02:10 - Remarks: SAD
+2026-08-08 10:02:10 - Table: leave_requests
+2026-08-08 10:02:10 - Is Roster: No
+2026-08-08 10:02:10 - Is Exception: No
+2026-08-08 10:02:10 - Request Data: Array
+(
+    [id] => 32
+    [user_id] => 8744
+    [person_id] => FNM6375
+    [start_date] => 2026-08-08
+    [end_date] => 2026-08-09
+    [leave_type] => 
+    [date] => 2026-08-08
+    [reason] => ASDA
+    [request_type] => comp_off
+    [pl_days_used] => 0.0
+    [lwp_days] => 0.0
+    [total_days] => 0.0
+    [pl_balance_before] => 0.0
+    [pl_balance_after] => 0.0
+    [weekend_days] => 0
+    [present_days] => 0
+    [leave_days] => 0
+    [absent_days] => 0
+    [status] => pending
+    [approved_by] => 7929
+    [approved_at] => 
+    [remarks] => 
+    [created_at] => 2026-08-08 10:01:08
+    [display_type] => 
+    [half_day_type] => 
+    [days] => 0.0
+)
+
+2026-08-08 10:02:10 - User ID: 8744, Current PL Balance: 3
+2026-08-08 10:02:10 - Leave Type determined: 'comp_off'
+2026-08-08 10:02:10 - Days calculated: 2 (from 2026-08-08 to 2026-08-09)
+2026-08-08 10:02:10 - Other leave type: COMP_OFF - No PL deduction.
+2026-08-08 10:02:10 - Request status updated to: approved
+2026-08-08 10:02:10 - ========== UPDATING LEAVE ATTENDANCE ==========
+2026-08-08 10:02:10 - Person ID: FNM6375
+2026-08-08 10:02:10 - Status to set: COMP_OFF
+2026-08-08 10:02:10 - Date range: 2026-08-08 to 2026-08-09
+2026-08-08 10:02:10 - Processing date: 2026-08-08
+2026-08-08 10:02:10 - Inserted attendance for 2026-08-08
+2026-08-08 10:02:10 - Processing date: 2026-08-09
+2026-08-08 10:02:10 - Inserted attendance for 2026-08-09
+2026-08-08 10:02:10 - Attendance updated for 2 days.
+2026-08-08 10:02:10 - Notification sent: Your comp off request has been approved as COMP_OFF.
+2026-08-08 10:02:10 - ========== APPROVAL COMPLETED SUCCESSFULLY ==========
+2026-08-08 11:46:25 - ========== START APPROVAL PROCESS ==========
+2026-08-08 11:46:25 - POST data: Array
+(
+    [action] => process_approval
+    [request_id] => 35
+    [request_type] => late
+    [status] => rejected
+    [remarks] => ss
+)
+
+2026-08-08 11:46:25 - Request ID: 35, Type: late, Status: rejected
+2026-08-08 11:46:25 - Remarks: ss
+2026-08-08 11:46:25 - Found in late_exception_requests table
+2026-08-08 11:46:25 - Table: late_exception_requests
+2026-08-08 11:46:25 - Is Roster: No
+2026-08-08 11:46:25 - Is Exception: Yes
+2026-08-08 11:46:25 - Request Data: Array
+(
+    [id] => 35
+    [user_id] => 8744
+    [person_id] => FNM6375
+    [date] => 2026-08-05
+    [reason] => TES
+    [exception_type] => full_day
+    [status] => pending
+    [remarks] => 
+    [approved_by] => 7929
+    [approved_at] => 
+    [created_at] => 2026-08-08 11:34:54
+    [request_type] => exception
+)
+
+2026-08-08 11:46:25 - Leave Type determined: 'late'
+2026-08-08 11:46:25 - Request status updated to: rejected
+2026-08-08 11:46:25 - ========== APPROVAL COMPLETED SUCCESSFULLY ==========
+2026-08-08 11:46:28 - ========== START APPROVAL PROCESS ==========
+2026-08-08 11:46:28 - POST data: Array
+(
+    [action] => process_approval
+    [request_id] => 36
+    [request_type] => late
+    [status] => rejected
+    [remarks] => ss
+)
+
+2026-08-08 11:46:28 - Request ID: 36, Type: late, Status: rejected
+2026-08-08 11:46:28 - Remarks: ss
+2026-08-08 11:46:28 - Found in late_exception_requests table
+2026-08-08 11:46:28 - Table: late_exception_requests
+2026-08-08 11:46:28 - Is Roster: No
+2026-08-08 11:46:28 - Is Exception: Yes
+2026-08-08 11:46:28 - Request Data: Array
+(
+    [id] => 36
+    [user_id] => 8744
+    [person_id] => FNM6375
+    [date] => 2026-08-06
+    [reason] => aa
+    [exception_type] => full_day
+    [status] => pending
+    [remarks] => 
+    [approved_by] => 8760
+    [approved_at] => 
+    [created_at] => 2026-08-08 11:46:05
+    [request_type] => exception
+)
+
+2026-08-08 11:46:28 - Leave Type determined: 'late'
+2026-08-08 11:46:28 - Request status updated to: rejected
+2026-08-08 11:46:28 - ========== APPROVAL COMPLETED SUCCESSFULLY ==========
+2026-08-16 10:02:14 - ========== START APPROVAL PROCESS ==========
+2026-08-16 10:02:14 - POST data: Array
+(
+    [action] => process_approval
+    [request_id] => 66
+    [request_type] => late
+    [status] => approved
+    [remarks] => ok
+)
+
+2026-08-16 10:02:14 - Request ID: 66, Type: late, Status: approved
+2026-08-16 10:02:14 - Remarks: ok
+2026-08-16 10:02:14 - Targeting table: late_exception_requests for ID: 66
+2026-08-16 10:02:14 - Leave Type determined: 'late'
+2026-08-16 10:02:14 - Request status updated to: approved
+2026-08-16 10:02:14 - ========== UPDATING EXCEPTION ATTENDANCE ==========
+2026-08-16 10:02:14 - Regular Exception Type: pl_adjustment
+2026-08-16 10:02:14 - Request Date: 2026-08-14
+2026-08-16 10:02:14 - PL Adjustment: Date was HD, deducting 0.5 day, setting to HPL
+2026-08-16 10:02:15 - PL adjustment success: Deducted 0.5 days from user 7929
+2026-08-16 10:02:15 - Updated exception attendance for 2026-08-14 with status: HPL
+2026-08-16 10:02:15 - Notification sent: Your Pl adjustment request for Aug 14, 2026 has been approved.
+2026-08-16 10:02:15 - ========== APPROVAL COMPLETED SUCCESSFULLY ==========
+2026-08-16 10:48:04 - ========== START APPROVAL PROCESS ==========
+2026-08-16 10:48:04 - POST data: Array
+(
+    [action] => process_approval
+    [request_id] => 67
+    [request_type] => late
+    [status] => approved
+    [remarks] => ok
+)
+
+2026-08-16 10:48:04 - Request ID: 67, Type: late, Status: approved
+2026-08-16 10:48:04 - Remarks: ok
+2026-08-16 10:48:04 - Targeting table: late_exception_requests for ID: 67
+2026-08-16 10:48:04 - Leave Type determined: 'late'
+2026-08-16 10:48:04 - Request status updated to: approved
+2026-08-16 10:48:04 - ========== UPDATING EXCEPTION ATTENDANCE ==========
+2026-08-16 10:48:04 - Regular Exception Type: pl_adjustment
+2026-08-16 10:48:04 - Request Date: 2026-08-15
+2026-08-16 10:48:04 - PL Adjustment: Date was HD, deducting 0.5 day, setting to HPL
+2026-08-16 10:48:04 - PL adjustment success: Deducted 0.5 days from user 7929
+2026-08-16 10:48:04 - Updated exception attendance for 2026-08-15 with status: HPL
+2026-08-16 10:48:04 - Notification sent: Your Pl adjustment request for Aug 15, 2026 has been approved.
+2026-08-16 10:48:04 - ========== APPROVAL COMPLETED SUCCESSFULLY ==========
+2026-08-16 10:55:00 - ========== START APPROVAL PROCESS ==========
+2026-08-16 10:55:00 - POST data: Array
+(
+    [action] => process_approval
+    [request_id] => 68
+    [request_type] => late
+    [status] => approved
+    [remarks] => ok
+)
+
+2026-08-16 10:55:00 - Request ID: 68, Type: late, Status: approved
+2026-08-16 10:55:00 - Remarks: ok
+2026-08-16 10:55:00 - Targeting table: late_exception_requests for ID: 68
+2026-08-16 10:55:00 - Leave Type determined: 'late'
+2026-08-16 10:55:00 - Request status updated to: approved
+2026-08-16 10:55:00 - ========== UPDATING EXCEPTION ATTENDANCE ==========
+2026-08-16 10:55:00 - Regular Exception Type: pl_adjustment
+2026-08-16 10:55:00 - Request Date: 2026-08-16
+2026-08-16 10:55:00 - PL Adjustment: Date was HD, deducting 0.5 day, setting to HPL
+2026-08-16 10:55:00 - PL adjustment success: Deducted 0.5 days from user 7929
+2026-08-16 10:55:00 - Updated exception attendance for 2026-08-16 with status: HPL
+2026-08-16 10:55:00 - Notification sent: Your Pl adjustment request for Aug 16, 2026 has been approved.
+2026-08-16 10:55:00 - ========== APPROVAL COMPLETED SUCCESSFULLY ==========
+2026-08-16 11:02:06 - ========== START APPROVAL PROCESS ==========
+2026-08-16 11:02:06 - POST data: Array
+(
+    [action] => process_approval
+    [request_id] => 69
+    [request_type] => late
+    [status] => approved
+    [remarks] => ok
+)
+
+2026-08-16 11:02:06 - Request ID: 69, Type: late, Status: approved
+2026-08-16 11:02:06 - Remarks: ok
+2026-08-16 11:02:06 - Targeting table: late_exception_requests for ID: 69
+2026-08-16 11:02:06 - Leave Type determined: 'late'
+2026-08-16 11:02:06 - Request status updated to: approved
+2026-08-16 11:02:06 - ========== UPDATING EXCEPTION ATTENDANCE ==========
+2026-08-16 11:02:06 - Regular Exception Type: pl_adjustment
+2026-08-16 11:02:06 - Request Date: 2026-08-14
+2026-08-16 11:02:06 - PL Adjustment: Date was A, deducting 1.0 day, setting to PL
+2026-08-16 11:02:06 - PL adjustment success: Deducted 1 days from user 7929
+2026-08-16 11:02:06 - Updated exception attendance for 2026-08-14 with status: PL
+2026-08-16 11:02:06 - Notification sent: Your Pl adjustment request for Aug 14, 2026 has been approved.
+2026-08-16 11:02:06 - ========== APPROVAL COMPLETED SUCCESSFULLY ==========
+2026-08-16 11:08:33 - ========== START APPROVAL PROCESS ==========
+2026-08-16 11:08:33 - POST data: Array
+(
+    [action] => process_approval
+    [request_id] => 70
+    [request_type] => late
+    [status] => approved
+    [remarks] => ok
+)
+
+2026-08-16 11:08:33 - Request ID: 70, Type: late, Status: approved
+2026-08-16 11:08:33 - Remarks: ok
+2026-08-16 11:08:33 - Targeting table: late_exception_requests for ID: 70
+2026-08-16 11:08:33 - Leave Type determined: 'late'
+2026-08-16 11:08:33 - Request status updated to: approved
+2026-08-16 11:08:33 - ========== UPDATING EXCEPTION ATTENDANCE ==========
+2026-08-16 11:08:33 - Regular Exception Type: pl_adjustment
+2026-08-16 11:08:33 - Request Date: 2026-08-14
+2026-08-16 11:08:33 - PL Adjustment: Date was HD, deducting 0.5 day, setting to HPL
+2026-08-16 11:08:33 - PL adjustment success: Deducted 0.5 days from user 7929
+2026-08-16 11:08:33 - Updated exception attendance for 2026-08-14 with status: HPL
+2026-08-16 11:08:33 - Notification sent: Your Pl adjustment request for Aug 14, 2026 has been approved.
+2026-08-16 11:08:33 - ========== APPROVAL COMPLETED SUCCESSFULLY ==========
+2026-08-16 11:12:00 - ========== START APPROVAL PROCESS ==========
+2026-08-16 11:12:00 - POST data: Array
+(
+    [action] => process_approval
+    [request_id] => 71
+    [request_type] => late
+    [status] => approved
+    [remarks] => ok
+)
+
+2026-08-16 11:12:00 - Request ID: 71, Type: late, Status: approved
+2026-08-16 11:12:00 - Remarks: ok
+2026-08-16 11:12:00 - Targeting table: late_exception_requests for ID: 71
+2026-08-16 11:12:00 - Leave Type determined: 'late'
+2026-08-16 11:12:00 - Request status updated to: approved
+2026-08-16 11:12:00 - ========== UPDATING EXCEPTION ATTENDANCE ==========
+2026-08-16 11:12:00 - Regular Exception Type: pl_adjustment
+2026-08-16 11:12:00 - Request Date: 2026-08-15
+2026-08-16 11:12:00 - PL Adjustment: Date was HD, deducting 0.5 day, setting to HPL
+2026-08-16 11:12:00 - PL adjustment success: Deducted 0.5 days from user 7929
+2026-08-16 11:12:00 - Updated exception attendance for 2026-08-15 with status: HPL
+2026-08-16 11:12:00 - Notification sent: Your Pl adjustment request for Aug 15, 2026 has been approved.
+2026-08-16 11:12:00 - ========== APPROVAL COMPLETED SUCCESSFULLY ==========
+2026-08-16 11:14:00 - ========== START APPROVAL PROCESS ==========
+2026-08-16 11:14:00 - POST data: Array
+(
+    [action] => process_approval
+    [request_id] => 72
+    [request_type] => late
+    [status] => approved
+    [remarks] => ok
+)
+
+2026-08-16 11:14:00 - Request ID: 72, Type: late, Status: approved
+2026-08-16 11:14:00 - Remarks: ok
+2026-08-16 11:14:00 - Targeting table: late_exception_requests for ID: 72
+2026-08-16 11:14:00 - Leave Type determined: 'late'
+2026-08-16 11:14:00 - Request status updated to: approved
+2026-08-16 11:14:00 - ========== UPDATING EXCEPTION ATTENDANCE ==========
+2026-08-16 11:14:00 - Regular Exception Type: pl_adjustment
+2026-08-16 11:14:00 - Request Date: 2026-08-15
+2026-08-16 11:14:00 - PL Adjustment: Date was HD, deducting 0.5 day, setting to HPL
+2026-08-16 11:14:00 - PL adjustment success: Deducted 0.5 days from user 7929
+2026-08-16 11:14:00 - Updated exception attendance for 2026-08-15 with status: HPL
+2026-08-16 11:14:00 - Notification sent: Your Pl adjustment request for Aug 15, 2026 has been approved.
+2026-08-16 11:14:00 - ========== APPROVAL COMPLETED SUCCESSFULLY ==========
+2026-08-16 11:18:23 - ========== START APPROVAL PROCESS ==========
+2026-08-16 11:18:23 - POST data: Array
+(
+    [action] => process_approval
+    [request_id] => 73
+    [request_type] => late
+    [status] => approved
+    [remarks] => ok
+)
+
+2026-08-16 11:18:23 - Request ID: 73, Type: late, Status: approved
+2026-08-16 11:18:23 - Remarks: ok
+2026-08-16 11:18:23 - Targeting table: late_exception_requests for ID: 73
+2026-08-16 11:18:23 - Leave Type determined: 'late'
+2026-08-16 11:18:23 - Request status updated to: approved
+2026-08-16 11:18:23 - ========== UPDATING EXCEPTION ATTENDANCE ==========
+2026-08-16 11:18:23 - Regular Exception Type: pl_adjustment
+2026-08-16 11:18:23 - Request Date: 2026-08-14
+2026-08-16 11:18:23 - PL Adjustment: Date was HD, deducting 0.5 day, setting to HPL
+2026-08-16 11:18:23 - PL adjustment success: Deducted 0.5 days from user 7929
+2026-08-16 11:18:23 - Updated exception attendance for 2026-08-14 with status: HPL
+2026-08-16 11:18:23 - Notification sent: Your Pl adjustment request for Aug 14, 2026 has been approved.
+2026-08-16 11:18:23 - ========== APPROVAL COMPLETED SUCCESSFULLY ==========
+2026-08-16 11:21:52 - ========== START APPROVAL PROCESS ==========
+2026-08-16 11:21:52 - POST data: Array
+(
+    [action] => process_approval
+    [request_id] => 74
+    [request_type] => late
+    [status] => approved
+    [remarks] => ok
+)
+
+2026-08-16 11:21:52 - Request ID: 74, Type: late, Status: approved
+2026-08-16 11:21:52 - Remarks: ok
+2026-08-16 11:21:52 - Targeting table: late_exception_requests for ID: 74
+2026-08-16 11:21:52 - Leave Type determined: 'late'
+2026-08-16 11:21:52 - Request status updated to: approved
+2026-08-16 11:21:52 - ========== UPDATING EXCEPTION ATTENDANCE ==========
+2026-08-16 11:21:52 - Regular Exception Type: pl_adjustment
+2026-08-16 11:21:52 - Request Date: 2026-08-15
+2026-08-16 11:21:52 - PL Adjustment: Date was HD, deducting 0.5 day, setting to HPL
+2026-08-16 11:21:52 - PL adjustment success: Deducted 0.5 days from user 7929
+2026-08-16 11:21:52 - Updated exception attendance for 2026-08-15 with status: HPL
+2026-08-16 11:21:52 - Notification sent: Your Pl adjustment request for Aug 15, 2026 has been approved.
+2026-08-16 11:21:52 - ========== APPROVAL COMPLETED SUCCESSFULLY ==========
+2026-08-16 11:48:00 - ========== START APPROVAL PROCESS ==========
+2026-08-16 11:48:00 - POST data: Array
+(
+    [action] => process_approval
+    [request_id] => 75
+    [request_type] => late
+    [status] => approved
+    [remarks] => ok
+)
+
+2026-08-16 11:48:00 - Request ID: 75, Type: late, Status: approved
+2026-08-16 11:48:00 - Remarks: ok
+2026-08-16 11:48:00 - Targeting table: late_exception_requests for ID: 75
+2026-08-16 11:48:00 - Leave Type determined: 'late'
+2026-08-16 11:48:00 - Request status updated to: approved
+2026-08-16 11:48:00 - ========== UPDATING EXCEPTION ATTENDANCE ==========
+2026-08-16 11:48:00 - Regular Exception Type: pl_adjustment
+2026-08-16 11:48:00 - Request Date: 2026-08-14
+2026-08-16 11:48:00 - PL Adjustment: Date was HD, deducting 0.5 day, setting to HPL
+2026-08-16 11:48:00 - PL adjustment success: Deducted 0.5 days from user 7929
+2026-08-16 11:48:00 - Updated exception attendance for 2026-08-14 with status: HPL
+2026-08-16 11:48:00 - Notification sent: Your Pl adjustment request for Aug 14, 2026 has been approved.
+2026-08-16 11:48:00 - ========== APPROVAL COMPLETED SUCCESSFULLY ==========
+2026-08-16 11:49:15 - ========== START APPROVAL PROCESS ==========
+2026-08-16 11:49:15 - POST data: Array
+(
+    [action] => process_approval
+    [request_id] => 76
+    [request_type] => late
+    [status] => approved
+    [remarks] => ok
+)
+
+2026-08-16 11:49:15 - Request ID: 76, Type: late, Status: approved
+2026-08-16 11:49:15 - Remarks: ok
+2026-08-16 11:49:15 - Targeting table: late_exception_requests for ID: 76
+2026-08-16 11:49:15 - Leave Type determined: 'late'
+2026-08-16 11:49:15 - Request status updated to: approved
+2026-08-16 11:49:15 - ========== UPDATING EXCEPTION ATTENDANCE ==========
+2026-08-16 11:49:15 - Regular Exception Type: pl_adjustment
+2026-08-16 11:49:15 - Request Date: 2026-08-15
+2026-08-16 11:49:15 - PL Adjustment: Date was HD, deducting 0.5 day, setting to HPL
+2026-08-16 11:49:15 - PL adjustment success: Deducted 0.5 days from user 7929
+2026-08-16 11:49:15 - Updated exception attendance for 2026-08-15 with status: HPL
+2026-08-16 11:49:15 - Notification sent: Your Pl adjustment request for Aug 15, 2026 has been approved.
+2026-08-16 11:49:15 - ========== APPROVAL COMPLETED SUCCESSFULLY ==========
+2026-08-27 12:38:06 - ========== START APPROVAL PROCESS ==========
+2026-08-27 12:38:06 - POST data: Array
+(
+    [action] => process_approval
+    [request_id] => 89
+    [request_type] => late
+    [status] => approved
+    [remarks] => ok
+)
+
+2026-08-27 12:38:06 - Request ID: 89, Type: late, Status: approved
+2026-08-27 12:38:06 - Remarks: ok
+2026-08-27 12:38:06 - Targeting table: late_exception_requests for ID: 89
+2026-08-27 12:38:06 - Leave Type determined: 'late'
+2026-08-27 12:38:06 - Request status updated to: approved
+2026-08-27 12:38:06 - Notification sent: Your exception request has been approved.
+2026-08-27 12:38:06 - ========== APPROVAL COMPLETED SUCCESSFULLY ==========
+2026-08-27 12:47:26 - ========== START APPROVAL PROCESS ==========
+2026-08-27 12:47:26 - POST data: Array
+(
+    [action] => process_approval
+    [request_id] => 90
+    [request_type] => pl_adjustment
+    [status] => approved
+    [remarks] => ok
+)
+
+2026-08-27 12:47:26 - Request ID: 90, Type: pl_adjustment, Status: approved
+2026-08-27 12:47:26 - Remarks: ok
+2026-08-27 12:47:26 - Targeting table: late_exception_requests for ID: 90
+2026-08-27 12:47:26 - Leave Type determined: 'pl_adjustment'
+2026-08-27 12:47:26 - Request status updated to: approved
+2026-08-27 12:47:26 - Notification sent: Your exception request has been approved.
+2026-08-27 12:47:26 - ========== APPROVAL COMPLETED SUCCESSFULLY ==========
+2026-08-27 12:58:00 - ========== START APPROVAL PROCESS ==========
+2026-08-27 12:58:00 - POST data: Array
+(
+    [action] => process_approval
+    [request_id] => 91
+    [request_type] => pl_adjustment
+    [status] => approved
+    [remarks] => ok
+)
+
+2026-08-27 12:58:00 - Request ID: 91, Type: pl_adjustment, Status: approved
+2026-08-27 12:58:00 - Remarks: ok
+2026-08-27 12:58:00 - Targeting table: late_exception_requests for ID: 91
+2026-08-27 12:58:00 - Leave Type determined: 'pl_adjustment'
+2026-08-27 12:58:00 - Request status updated to: approved
+2026-08-27 12:58:00 - Notification sent: Your exception request has been approved.
+2026-08-27 12:58:00 - ========== APPROVAL COMPLETED SUCCESSFULLY ==========
