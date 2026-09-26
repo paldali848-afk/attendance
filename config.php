@@ -3,7 +3,7 @@
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'atten');
 define('DB_USER', 'root');
-define('DB_PASS', 'Aks@93290090');
+define('DB_PASS', '');
 
 // Application configuration
 define('SITE_NAME', 'Attendance Management System');

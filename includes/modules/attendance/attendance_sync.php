@@ -229,6 +229,28 @@ try {
         echo "--- Step 3c: PH-absent marking completed (strict mode) ---\n";
     }
 
+// =========================================================
+// STEP 4: NIGHT SHIFT DETECTION (IT Department only)
+// Night shift = out_time between 12:00 AM and 1:00 AM
+// =========================================================
+try {
+    $stmt = $pdo->exec("
+        UPDATE atten.attendance a 
+        JOIN atten.users u 
+            ON a.person_id COLLATE utf8mb4_unicode_ci = u.person_id COLLATE utf8mb4_unicode_ci
+        SET a.night_shift = 1
+        WHERE a.date BETWEEN '$date_limit' AND '$date_end'
+          AND UPPER(TRIM(u.department)) = 'IT'
+          AND a.check_out IS NOT NULL 
+          AND a.check_out != '00:00:00'
+          AND TIME(a.check_out) >= '00:00:00' 
+          AND TIME(a.check_out) <= '01:00:00'
+    ");
+    echo "--- Step 4: Night shift detection completed (" . $stmt . " rows) ---\n";
+} catch (Exception $e) {
+    echo "--- Step 4 FAILED: " . $e->getMessage() . " ---\n";
+}
+
     // =========================================================
     // STEP 5: EXCEPTIONS
     // =========================================================

@@ -1,10 +1,10 @@
 <?php
 // ============================================================
-// ot_data.php — OT Report for IT Department
+// ot_data.php ï¿½ OT Report for IT Department
 // Access: FNM10824 only
 // ============================================================
 
-// config.php already starts the session — do NOT call session_start() here.
+// config.php already starts the session ï¿½ do NOT call session_start() here.
 require_once 'config.php';
 
 // ===== ENSURE $user IS POPULATED =====
@@ -27,7 +27,7 @@ if (!isset($_SESSION['user_id'])) {
 $has_access = isset($user['person_id']) && trim($user['person_id']) === 'FNM10824';
 
 // ===== CONFIG =====
-define('OT_RATE_PER_HOUR', 60); // ? per OT hour — change to your rate
+define('OT_RATE_PER_HOUR', 60); // ? per OT hour ï¿½ change to your rate
 
 // ===== FILTERS =====
 $selected_month = (int)date('m');
@@ -52,7 +52,7 @@ if (!empty($_GET['month'])) {
 
 $month_label = date('F - Y', strtotime("$selected_year-$selected_month-01"));
 
-// ===== ACCESS DENIED — render inside layout =====
+// ===== ACCESS DENIED ï¿½ render inside layout =====
 if (!$has_access) {
     if (file_exists(__DIR__ . '/includes/header.php')) {
         include __DIR__ . '/includes/header.php';
@@ -81,33 +81,34 @@ if (!empty($it_users)) {
     $person_ids   = array_column($it_users, 'person_id');
     $placeholders = implode(',', array_fill(0, count($person_ids), '?'));
 
-    $stmt = $pdo->prepare("
-        SELECT
-            a.date,
-            a.person_id,
-            COALESCE(NULLIF(TRIM(a.name), ''), u.full_name, a.person_id) AS name,
-            a.check_in,
-            a.check_out,
-            a.work,
-            a.ot_approved,
-            a.ot_hours   AS att_ot_hours,
-            o.id         AS ot_req_id,
-            o.ot_hours   AS ot_hours,
-            o.reason     AS activity,
-            o.status     AS ot_status
-        FROM attendance a
-        LEFT JOIN users u
-               ON u.person_id = a.person_id COLLATE utf8mb4_unicode_ci
-        LEFT JOIN overtime_requests o
-               ON o.person_id = a.person_id COLLATE utf8mb4_unicode_ci
-              AND o.date      = a.date
-              AND o.status    = 'approved'
-        WHERE a.person_id IN ($placeholders)
-          AND YEAR(a.date)  = ?
-          AND MONTH(a.date) = ?
-        HAVING o.id IS NOT NULL OR a.ot_approved = 1
-        ORDER BY a.date ASC, name ASC
-    ");
+  $stmt = $pdo->prepare("
+    SELECT
+        a.date,
+        a.person_id,
+        COALESCE(NULLIF(TRIM(a.name), ''), u.full_name, a.person_id) AS name,
+        a.check_in,
+        a.check_out,
+        a.work,
+        a.ot_approved,
+        a.ot_hours   AS att_ot_hours,
+        a.night_shift,
+        o.id         AS ot_req_id,
+        o.ot_hours   AS ot_hours,
+        o.reason     AS activity,
+        o.status     AS ot_status
+    FROM attendance a
+    LEFT JOIN users u
+           ON u.person_id = a.person_id COLLATE utf8mb4_unicode_ci
+    LEFT JOIN overtime_requests o
+           ON o.person_id = a.person_id COLLATE utf8mb4_unicode_ci
+          AND o.date      = a.date
+          AND o.status    = 'approved'
+    WHERE a.person_id IN ($placeholders)
+      AND YEAR(a.date)  = ?
+      AND MONTH(a.date) = ?
+    HAVING o.id IS NOT NULL OR a.ot_approved = 1
+    ORDER BY a.date ASC, name ASC
+");
 
     $params = array_merge($person_ids, [$selected_year, $selected_month]);
     $stmt->execute($params);
@@ -138,15 +139,12 @@ foreach ($rows as $r) {
     $ot_h = (float)($r['ot_hours'] ?? $r['att_ot_hours'] ?? 0);
     $summary[$pid]['ot_hours'] += $ot_h;
 
-    // Night OT detection: check-in at or after 18:00, or before 06:00
-    if (!empty($r['check_in']) && $r['check_in'] !== '00:00:00') {
-        $h = (int)date('G', strtotime($r['check_in']));
-        if ($h >= 18 || $h < 6) {
-            $summary[$pid]['night']++;
-        }
+    // Night shift detection: use night_shift column from attendance table
+    // (out time between 12:00 AM and 1:00 AM)
+    if (!empty($r['night_shift']) && (int)$r['night_shift'] === 1) {
+        $summary[$pid]['night']++;
     }
 }
-
 // Compute ? and sort alphabetically
 foreach ($summary as $pid => &$s) {
     $s['ot_rs'] = $s['ot_hours'] * OT_RATE_PER_HOUR;
@@ -171,14 +169,11 @@ function formatTimes(array $r): array {
     $out = ($r['check_out'] && $r['check_out'] !== '00:00:00') ? date('h:i A', strtotime($r['check_out'])) : '-';
     $ttl = (float)($r['work'] ?? 0) > 0 ? number_format((float)$r['work'], 2) . 'h' : '-';
 
-    $night = '-';
-    if ($r['check_in'] && $r['check_in'] !== '00:00:00') {
-        $h = (int)date('G', strtotime($r['check_in']));
-        if ($h >= 18 || $h < 6) $night = 'YES';
-    }
+    // Night shift: based on night_shift column (out time 12:00 AM - 1:00 AM)
+    $night = (!empty($r['night_shift']) && (int)$r['night_shift'] === 1) ? 'YES' : '-';
+    
     return [$in, $out, $ttl, $night];
 }
-
 function calcOtWindow(array $r): array {
     $ot_start = ($r['check_in']  && $r['check_in']  !== '00:00:00') ? date('h:i A', strtotime($r['check_in']))  : '-';
     $ot_end   = ($r['check_out'] && $r['check_out'] !== '00:00:00') ? date('h:i A', strtotime($r['check_out'])) : '-';
@@ -282,7 +277,7 @@ include __DIR__ . '/includes/header.php';
 <!-- ========================================== -->
 <div style="max-width:1500px;margin:0 auto;padding:0 0 24px 0;">
 
-    <h1 style="font-size:22px;font-weight:800;margin:0 0 4px;color:#0f172a;">OT Details — IT Department</h1>
+    <h1 style="font-size:22px;font-weight:800;margin:0 0 4px;color:#0f172a;">OT Details ï¿½ IT Department</h1>
     <div style="color:#64748b;font-size:13px;margin-bottom:20px;">
         Overtime report for <?php echo $month_label; ?>
     </div>
@@ -413,7 +408,7 @@ include __DIR__ . '/includes/header.php';
                             <td style="padding:8px;"><?php echo $out_time;?></td>
                             <td style="padding:8px;"><?php echo $total_time;?></td>
                             <td style="padding:8px;" title="<?php echo htmlspecialchars($r['activity'] ?? '');?>">
-                                <?php echo htmlspecialchars(mb_strimwidth((string)($r['activity'] ?? ''),0,40,'…'));?>
+                                <?php echo htmlspecialchars(mb_strimwidth((string)($r['activity'] ?? ''),0,40,'ï¿½'));?>
                             </td>
                             <td style="padding:8px;"><?php echo $ot_start;?></td>
                             <td style="padding:8px;"><?php echo $ot_end;?></td>
